@@ -2,9 +2,10 @@ import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import {
     DefaultJobQueuePlugin,
-    DefaultSearchPlugin, dummyPaymentHandler, VendureConfig
+    DefaultSearchPlugin, dummyPaymentHandler, UuidIdStrategy, VendureConfig
 } from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
+import { HardenPlugin } from '@vendure/harden-plugin';
 import 'dotenv/config';
 import path from 'path';
 
@@ -52,8 +53,15 @@ export const config: VendureConfig = {
 			port: +process.env.DB_PORT,
 			username: process.env.DB_USERNAME,
 			password: process.env.DB_PASSWORD,
-			ssl: Boolean(process.env.USE_SSL) || false
+			// ssl: Boolean(process.env.USE_SSL) || false,
+            ssl: {
+                rejectUnauthorized: false,
+                requestCert: true
+            }
 	},
+    entityOptions: {
+        entityIdStrategy: new UuidIdStrategy(),
+    },
 	paymentOptions: {
 			paymentMethodHandlers: [dummyPaymentHandler],
 	},
@@ -91,5 +99,9 @@ export const config: VendureConfig = {
 					route: 'admin',
 					port: 3002,
 			}),
+            HardenPlugin.init({
+                maxQueryComplexity: 500,
+                apiMode: IS_DEV ? 'dev' : 'prod',
+            }),
 	],
 };

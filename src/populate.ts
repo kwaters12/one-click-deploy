@@ -1,7 +1,7 @@
-import { populate } from '@vendure/core/cli';
 import { bootstrap, VendureConfig } from '@vendure/core';
-import { createConnection } from 'typeorm';
+import { populate } from '@vendure/core/cli';
 import path from 'path';
+import { createConnection } from 'typeorm';
 
 /**
  * @description
@@ -33,7 +33,7 @@ export async function populateOnFirstRun(config: VendureConfig) {
 }
 
 async function tablesExist(config: VendureConfig) {
-    const connection = await createConnection(config.dbConnectionOptions);
+    const connection = await createConnection(config.dbConnectionOptions as any);
     const result = await connection.query(`
         select n.nspname as table_schema,
                c.relname as table_name,
