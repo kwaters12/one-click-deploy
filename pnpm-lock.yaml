@@ -20,6 +20,9 @@ dependencies:
   '@vendure/email-plugin':
     specifier: ^1.9.3
     version: 1.9.3
+  '@vendure/harden-plugin':
+    specifier: ^2.0.6
+    version: 2.0.6(graphql@15.8.0)
   pg:
     specifier: 8.8.0
     version: 8.8.0
@@ -1117,6 +1120,14 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@vendure/harden-plugin@2.0.6(graphql@15.8.0):
+    resolution: {integrity: sha512-5Lq073AgXVHIr8LA3B9qGgECHujVVbfVkOi+Bc59tmVkhq4W+Y34I0ai6mBALkyO3OoyCZLhOCrylrCHI/mAZA==}
+    dependencies:
+      graphql-query-complexity: 0.12.0(graphql@15.8.0)
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /@wry/equality@0.1.11:
@@ -3201,6 +3212,15 @@ packages:
     resolution: {integrity: sha512-x3VE5lUcR4XCOxPIqaO4CE+bTK8u6gVouOdpQX9+EKHr+scqtK5Pp/l8nIGqIpN1TUlkKE6jDCCycm/WtLRAwA==}
     dev: false
 
+  /graphql-query-complexity@0.12.0(graphql@15.8.0):
+    resolution: {integrity: sha512-fWEyuSL6g/+nSiIRgIipfI6UXTI7bAxrpPlCY1c0+V3pAEUo1ybaKmSBgNr1ed2r+agm1plJww8Loig9y6s2dw==}
+    peerDependencies:
+      graphql: ^14.6.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 15.8.0
+      lodash.get: 4.4.2
+    dev: false
+
   /graphql-scalars@1.22.2(graphql@15.5.1):
     resolution: {integrity: sha512-my9FB4GtghqXqi/lWSVAOPiTzTnnEzdOXCsAC2bb5V7EFNQjVjwy3cSSbUvgYOtDuDibd+ZsCDhz+4eykYOlhQ==}
     engines: {node: '>=10'}
@@ -3995,6 +4015,10 @@ packages:
     transitivePeerDependencies:
       - zen-observable
       - zenObservable
+    dev: false
+
+  /lodash.get@4.4.2:
+    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
     dev: false
 
   /lodash.sortby@4.7.0:
