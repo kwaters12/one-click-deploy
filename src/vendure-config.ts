@@ -5,7 +5,6 @@ import {
     DefaultSearchPlugin, dummyPaymentHandler, UuidIdStrategy, VendureConfig
 } from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
-import { HardenPlugin } from '@vendure/harden-plugin';
 import 'dotenv/config';
 import path from 'path';
 
@@ -99,9 +98,9 @@ export const config: VendureConfig = {
 					route: 'admin',
 					port: 3002,
 			}),
-            HardenPlugin.init({
-                maxQueryComplexity: 500,
-                apiMode: IS_DEV ? 'dev' : 'prod',
-            }),
+            // HardenPlugin.init({
+            //     maxQueryComplexity: 500,
+            //     apiMode: IS_DEV ? 'dev' : 'prod',
+            // }),
 	],
 };

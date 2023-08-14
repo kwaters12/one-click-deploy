@@ -28,6 +28,6 @@
     "concurrently": "7.3.0",
     "dotenv": "16.0.2",
     "ts-node": "10.9.1",
-    "typeorm": "0.2.44"
+    "typeorm": "0.2.45"
   }
 }
