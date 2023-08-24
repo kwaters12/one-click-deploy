@@ -13,6 +13,7 @@
     "outDir": "./dist",
     "baseUrl": "./"
   },
+  "indlude": ["src"],
   "exclude": ["node_modules", "migration.ts"],
   "ts-node": {
     "files": true
